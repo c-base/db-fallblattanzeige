@@ -5,27 +5,7 @@
 
 const int PIN_MOTOR = 2;
 const int PIN_SENSORS = 3;
-
-void spinToOrigin() {
-  digitalWrite(PIN_MOTOR, LOW);
-
-  // skip first high value
-  while(digitalRead(PIN_SENSORS));
-
-  int startValue = digitalRead(PIN_SENSORS);
-  int numEqual = 0;
-  
-  while(numEqual < 1000) {   
-    if(HIGH == digitalRead(PIN_SENSORS))
-      numEqual++;
-    else
-      numEqual = 0;
-
-    delayMicroseconds(100);
-  }
-  while(digitalRead(PIN_SENSORS));
-  digitalWrite(PIN_MOTOR, HIGH);
-}
+const int ORIGIN_OFFSET = 6;
 
 void waitForSwitches(int switches) {
   int lastValue = digitalRead(PIN_SENSORS);
@@ -49,6 +29,29 @@ void flipCards(int numCards) {
   for(int i = 0; i < numCards; i++)
     waitForSwitches(2);
     
+  digitalWrite(PIN_MOTOR, HIGH);
+}
+
+void spinToOrigin() {
+  digitalWrite(PIN_MOTOR, LOW);
+
+  // skip first high value
+  while(digitalRead(PIN_SENSORS));
+
+  int startValue = digitalRead(PIN_SENSORS);
+  int numEqual = 0;
+  
+  while(numEqual < 1000) {   
+    if(HIGH == digitalRead(PIN_SENSORS))
+      numEqual++;
+    else
+      numEqual = 0;
+
+    delayMicroseconds(100);
+  }
+  while(digitalRead(PIN_SENSORS));
+
+  flipCards(ORIGIN_OFFSET);
   digitalWrite(PIN_MOTOR, HIGH);
 }
 
