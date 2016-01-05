@@ -58,11 +58,15 @@ void setup() {
   Serial.begin(9600);
 
   spinToOrigin();
-  delay(1000); // wait for a second (this is not needed, but nice for debugging)
-  flipCards(3);
 }
 
-// the loop function runs over and over again forever
 void loop() {
- 
+  if (Serial.available() > 0) {
+    int numCards = Serial.parseInt();
+    if(numCards > 0)
+      flipCards(numCards);
+    else
+      spinToOrigin();
+  }
 }
+
