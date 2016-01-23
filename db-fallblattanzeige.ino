@@ -1,5 +1,5 @@
 // DB-Fallblattanzeige 
-// 21.01.2016
+// 23.01.2016
 //
 // Authors: uk, coon
 
@@ -52,6 +52,23 @@ void spinToOrigin() {
   digitalWrite(PIN_MOTOR, HIGH);
 }
 
+byte getDeviceBusAddress() {
+  digitalWrite(PIN_SR_LATCH, LOW);
+  delay(20);
+  digitalWrite(PIN_SR_LATCH, HIGH);
+
+  int address = 0;
+  for(int i = 7; i >= 0; i--) {
+    digitalWrite(PIN_SR_CP, LOW);
+    delay(20);
+    address |= digitalRead(PIN_SR_DATA) << i;
+    digitalWrite(PIN_SR_CP, HIGH);
+    delay(20);
+  }
+
+  return address;
+}
+
 void initI2cEeprom() {
   Wire.setClock(0); // set to lowest possible speed
 
@@ -96,6 +113,9 @@ void setup() {
   pinMode(PIN_IR_ROTARY,  OUTPUT);
   
   Serial.begin(9600);
+
+  Serial.print("Address: ");    
+  Serial.println(String(getDeviceBusAddress(), DEC));
 
   initI2cEeprom();
   spinToOrigin();
