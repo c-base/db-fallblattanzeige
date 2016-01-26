@@ -1,1 +1,185 @@
 EESchema Schematic File Version 2
+LIBS:power
+LIBS:device
+LIBS:transistors
+LIBS:conn
+LIBS:linear
+LIBS:regul
+LIBS:74xx
+LIBS:cmos4000
+LIBS:adc-dac
+LIBS:memory
+LIBS:xilinx
+LIBS:microcontrollers
+LIBS:dsp
+LIBS:microchip
+LIBS:analog_switches
+LIBS:motorola
+LIBS:texas
+LIBS:intel
+LIBS:audio
+LIBS:interface
+LIBS:digital-audio
+LIBS:philips
+LIBS:display
+LIBS:cypress
+LIBS:siliconi
+LIBS:opto
+LIBS:atmel
+LIBS:contrib
+LIBS:valves
+LIBS:ok-ic-com
+LIBS:db-fallblattanzeige-cache
+EELAYER 25 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 1 1
+Title "Fallblatt-Fahrzielanzeige / Device Controller"
+Date "2016-01-25"
+Rev ""
+Comp "c-base e.V."
+Comment1 "coon"
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L ATMEGA328-P IC?
+U 1 1 56A67206
+P 5400 4250
+F 0 "IC?" H 4650 5500 50  0000 L BNN
+F 1 "ATMEGA328-P" H 5800 2850 50  0000 L BNN
+F 2 "DIL28" H 5400 4250 50  0000 C CIN
+F 3 "" H 5400 4250 50  0000 C CNN
+	1    5400 4250
+	1    0    0    -1  
+$EndComp
+$Comp
+L 4071 U?
+U 1 1 56A67285
+P 8500 3750
+F 0 "U?" H 8500 3800 50  0000 C CNN
+F 1 "4071" H 8500 3700 50  0000 C CNN
+F 2 "" H 8500 3750 60  0000 C CNN
+F 3 "" H 8500 3750 60  0000 C CNN
+	1    8500 3750
+	1    0    0    -1  
+$EndComp
+$Comp
+L LED D?
+U 1 1 56A672DC
+P 1100 3300
+F 0 "D?" H 1100 3400 50  0000 C CNN
+F 1 "Power LED (Green)" H 1100 3161 50  0000 C CNN
+F 2 "" H 1100 3300 50  0000 C CNN
+F 3 "" H 1100 3300 50  0000 C CNN
+	1    1100 3300
+	0    -1   -1   0   
+$EndComp
+$Comp
+L JUMPER3 JP?
+U 1 1 56A6738B
+P 2350 4750
+F 0 "JP?" H 2400 4650 50  0000 L CNN
+F 1 "JUMPER3" H 2350 4850 50  0000 C BNN
+F 2 "" H 2350 4750 50  0000 C CNN
+F 3 "" H 2350 4750 50  0000 C CNN
+	1    2350 4750
+	1    0    0    -1  
+$EndComp
+$Comp
+L CONN_02X10 P?
+U 1 1 56A67436
+P 3050 5850
+F 0 "P?" H 3050 6400 50  0000 C CNN
+F 1 "CONN_02X10" V 3050 5850 50  0000 C CNN
+F 2 "" H 3050 4650 50  0000 C CNN
+F 3 "" H 3050 4650 50  0000 C CNN
+	1    3050 5850
+	1    0    0    -1  
+$EndComp
+$Comp
+L MAX485 IC?
+U 1 1 56A674FC
+P 7550 4950
+F 0 "IC?" H 7550 5300 60  0000 C CNN
+F 1 "MAX485" H 7550 4600 60  0000 C CNN
+F 2 "" H 7550 4950 60  0000 C CNN
+F 3 "" H 7550 4950 60  0000 C CNN
+	1    7550 4950
+	1    0    0    -1  
+$EndComp
+$Comp
+L CONN_01X06 P?
+U 1 1 56A69B15
+P 3200 3600
+F 0 "P?" H 3200 3950 50  0000 C CNN
+F 1 "FTDI" V 3300 3600 50  0000 C CNN
+F 2 "" H 3200 3600 50  0000 C CNN
+F 3 "" H 3200 3600 50  0000 C CNN
+	1    3200 3600
+	1    0    0    -1  
+$EndComp
+$Comp
+L 74LS132 U?
+U 1 1 56A69D12
+P 3650 1800
+F 0 "U?" H 3650 1900 50  0000 C CNN
+F 1 "74LS132" H 3650 1700 50  0000 C CNN
+F 2 "" H 3650 1800 50  0000 C CNN
+F 3 "" H 3650 1800 50  0000 C CNN
+	1    3650 1800
+	1    0    0    -1  
+$EndComp
+$Comp
+L 74LS132 U?
+U 2 1 56A69DD9
+P 3650 2400
+F 0 "U?" H 3650 2500 50  0000 C CNN
+F 1 "74LS132" H 3650 2300 50  0000 C CNN
+F 2 "" H 3650 2400 50  0000 C CNN
+F 3 "" H 3650 2400 50  0000 C CNN
+	2    3650 2400
+	1    0    0    -1  
+$EndComp
+$Comp
+L +5V #PWR?
+U 1 1 56A6A0F7
+P 1100 2500
+F 0 "#PWR?" H 1100 2350 50  0001 C CNN
+F 1 "+5V" H 1100 2640 50  0000 C CNN
+F 2 "" H 1100 2500 50  0000 C CNN
+F 3 "" H 1100 2500 50  0000 C CNN
+	1    1100 2500
+	1    0    0    -1  
+$EndComp
+$Comp
+L GND #PWR?
+U 1 1 56A6A12F
+P 1100 3750
+F 0 "#PWR?" H 1100 3500 50  0001 C CNN
+F 1 "GND" H 1100 3600 50  0000 C CNN
+F 2 "" H 1100 3750 50  0000 C CNN
+F 3 "" H 1100 3750 50  0000 C CNN
+	1    1100 3750
+	1    0    0    -1  
+$EndComp
+$Comp
+L R R?
+U 1 1 56A6A275
+P 1100 2800
+F 0 "R?" V 1180 2800 50  0000 C CNN
+F 1 "150" V 1100 2800 50  0000 C CNN
+F 2 "" V 1030 2800 50  0000 C CNN
+F 3 "" H 1100 2800 50  0000 C CNN
+	1    1100 2800
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	1100 2950 1100 3100
+Wire Wire Line
+	1100 2500 1100 2650
+Wire Wire Line
+	1100 3500 1100 3750
+$EndSCHEMATC
