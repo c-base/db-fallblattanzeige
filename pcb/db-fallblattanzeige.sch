@@ -29,11 +29,12 @@ LIBS:atmel
 LIBS:contrib
 LIBS:valves
 LIBS:ok-ic-com
+LIBS:db-fallblattanzeige-cache
 EELAYER 25 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
-Sheet 1 1
+Sheet 1 2
 Title "Fallblatt-Fahrzielanzeige / Device Controller"
 Date "2016-01-25"
 Rev ""
@@ -557,7 +558,7 @@ Wire Wire Line
 $Sheet
 S 2250 1800 950  900 
 U 56A8B466
-F0 "Bus Cable" 60
-F1 "bus_cable.sch" 60
+F0 "Fallblatt-Fahrzielanzeige / Device Board" 60
+F1 "device_board.sch" 60
 $EndSheet
 $EndSCHEMATC

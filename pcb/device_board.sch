@@ -28,12 +28,14 @@ LIBS:opto
 LIBS:atmel
 LIBS:contrib
 LIBS:valves
+LIBS:ok-ic-com
+LIBS:db-fallblattanzeige-cache
 EELAYER 25 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
-Sheet 1 1
-Title "Fallblattfahrzielanzeige / Bus Cable"
+Sheet 2 2
+Title "Fallblattfahrzielanzeige / Device Board"
 Date "2016-01-26"
 Rev ""
 Comp "c-base e.V."
