@@ -1,0 +1,8 @@
+EESchema-DOCLIB  Version 2.0
+#
+$CMP TLP3502
+D Generic Random Phase Opto-Triac
+K Opto-Triac Opto Triac Random Phase
+$ENDCMP
+#
+#End Doc Library

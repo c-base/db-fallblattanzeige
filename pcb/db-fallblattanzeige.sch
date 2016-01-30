@@ -29,12 +29,15 @@ LIBS:atmel
 LIBS:contrib
 LIBS:valves
 LIBS:ok-ic-com
+LIBS:power_sources
+LIBS:additional-logic
+LIBS:additional-opto
 LIBS:db-fallblattanzeige-cache
 EELAYER 25 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
-Sheet 1 2
+Sheet 1 3
 Title "Fallblatt-Fahrzielanzeige / Device Controller"
 Date "2016-01-25"
 Rev ""

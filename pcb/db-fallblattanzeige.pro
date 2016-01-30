@@ -1,4 +1,4 @@
-update=Tue 26 Jan 2016 08:13:22 PM CET
+update=Fri 29 Jan 2016 11:40:41 PM CET
 version=1
 last_client=kicad
 [pcbnew]
@@ -23,6 +23,8 @@ ModuleOutlineThickness=0.150000000000
 [cvpcb]
 version=1
 NetIExt=net
+[general]
+version=1
 [eeschema]
 version=1
 LibDir=
@@ -57,5 +59,6 @@ LibName27=atmel
 LibName28=contrib
 LibName29=valves
 LibName30=libs/ok-ic-com
-[general]
-version=1
+LibName31=libs/power_sources
+LibName32=libs/additional-logic
+LibName33=libs/additional-opto
