@@ -332,11 +332,7 @@ Wire Wire Line
 Wire Wire Line
 	4350 2100 4350 1850
 Wire Wire Line
-	5700 2150 5700 2250
-Wire Wire Line
-	5700 2250 5700 2350
-Wire Wire Line
-	5700 2350 5700 2600
+	5700 2150 5700 2600
 Connection ~ 5700 2250
 Connection ~ 5700 2350
 Wire Wire Line
@@ -368,4 +364,17 @@ F 3 "" H 7360 4237 50  0000 L CNN
 $EndComp
 Wire Wire Line
 	6900 4400 7100 4400
+$Comp
+L +10V #PWR?
+U 1 1 56AC567E
+P 2700 1850
+F 0 "#PWR?" H 2700 1700 50  0001 C CNN
+F 1 "+10V" H 2700 1990 50  0000 C CNN
+F 2 "" H 2700 1850 50  0000 C CNN
+F 3 "" H 2700 1850 50  0000 C CNN
+	1    2700 1850
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2700 2100 2700 1850
 $EndSCHEMATC
