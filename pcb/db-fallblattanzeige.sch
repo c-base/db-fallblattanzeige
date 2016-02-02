@@ -281,7 +281,7 @@ Text Label 5400 2100 3    60   ~ 0
 PWR_IR2
 Text Label 5300 2100 3    60   ~ 0
 PWR_IR1
-Text Label 4150 2050 0    60   ~ 0
+Text Label 4100 2300 0    60   ~ 0
 Unknown(SCK)
 Text Label 4150 1050 0    60   ~ 0
 MOSI
@@ -466,9 +466,9 @@ Wire Wire Line
 Wire Wire Line
 	5200 1850 5200 2100
 Wire Wire Line
-	5200 2100 4150 2100
+	5200 2100 4100 2100
 Wire Wire Line
-	4150 2100 4150 2050
+	4100 2100 4100 2300
 Wire Wire Line
 	5100 1150 4150 1150
 Wire Wire Line
@@ -480,11 +480,7 @@ Wire Wire Line
 Wire Wire Line
 	8150 4050 8150 3900
 Wire Wire Line
-	5850 3350 6900 3350
-Wire Wire Line
-	6900 3350 6900 3350
-Wire Wire Line
-	6900 3350 7750 3350
+	5850 3350 7750 3350
 Wire Wire Line
 	7750 3350 7750 3500
 Wire Wire Line
@@ -564,4 +560,6 @@ U 56A8B466
 F0 "Fallblatt-Fahrzielanzeige / Device Board" 60
 F1 "device_board.sch" 60
 $EndSheet
+Text HLabel 4100 2100 0    60   Input ~ 0
+BUS_UNKNOWN
 $EndSCHEMATC
