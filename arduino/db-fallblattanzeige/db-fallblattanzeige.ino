@@ -1,11 +1,13 @@
 // DB-Fallblattanzeige 
-// 23.01.2016
+// 14.02.2016
 //
 // Authors: uk, coon
 
 #include <Wire.h>
 
 // Pins
+const int PIN_RS485_nRE  = 2;  // PD2
+const int PIN_RS485_DE   = 3;  // PD3
 const int PIN_SENSORS_IN = 5;  // PD5
 const int PIN_SR_LATCH   = 6;  // PD6
 const int PIN_SR_CP      = 7;  // PD7
@@ -103,6 +105,8 @@ void setup() {
   digitalWrite(PIN_MOTOR, HIGH);
   digitalWrite(PIN_IR_ORIGIN, LOW);
   digitalWrite(PIN_IR_ROTARY, LOW);
+  digitalWrite(PIN_RS485_nRE, LOW);
+  digitalWrite(PIN_RS485_DE, HIGH);
   
   pinMode(PIN_SENSORS_IN, INPUT);
   pinMode(PIN_SR_LATCH,   OUTPUT);
@@ -111,6 +115,8 @@ void setup() {
   pinMode(PIN_MOTOR,      OUTPUT);
   pinMode(PIN_IR_ORIGIN,  OUTPUT);
   pinMode(PIN_IR_ROTARY,  OUTPUT);
+  pinMode(PIN_RS485_nRE,  OUTPUT);
+  pinMode(PIN_RS485_DE,   OUTPUT);
   
   Serial.begin(9600);
 
