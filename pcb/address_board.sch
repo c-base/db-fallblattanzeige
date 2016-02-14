@@ -32,6 +32,7 @@ LIBS:ok-ic-com
 LIBS:power_sources
 LIBS:additional-logic
 LIBS:additional-opto
+LIBS:db-fallblattanzeige-cache
 EELAYER 25 0
 EELAYER END
 $Descr A4 11693 8268
