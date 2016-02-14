@@ -32,7 +32,6 @@ LIBS:ok-ic-com
 LIBS:power_sources
 LIBS:additional-logic
 LIBS:additional-opto
-LIBS:db-fallblattanzeige-cache
 EELAYER 25 0
 EELAYER END
 $Descr A4 11693 8268
@@ -404,7 +403,9 @@ Wire Wire Line
 Wire Wire Line
 	9700 3250 9100 3250
 Wire Wire Line
-	5850 4750 10950 4750
+	5850 4750 9100 4750
+Wire Wire Line
+	9100 4750 9100 4750
 Wire Wire Line
 	9700 3150 8950 3150
 Wire Wire Line
@@ -639,17 +640,7 @@ Wire Wire Line
 	8950 5700 9400 5700
 Connection ~ 8950 4850
 Wire Wire Line
-	9100 3250 9100 4100
-Wire Wire Line
-	9100 4100 9550 4100
-Wire Wire Line
-	9100 5300 9100 4300
-Wire Wire Line
-	9100 4300 9550 4300
-Wire Wire Line
-	10750 4200 10950 4200
-Wire Wire Line
-	10950 4200 10950 4750
+	9100 4750 9100 4900
 Text Label 10700 5850 0    60   ~ 0
 BUS_PLUS
 Text Label 10700 5200 0    60   ~ 0
@@ -720,14 +711,36 @@ Wire Wire Line
 	4700 1750 4700 2100
 Connection ~ 4700 2100
 $Comp
-L 74LS32 U?
-U 1 1 56BFEA45
-P 10150 4200
-F 0 "U?" H 10150 4250 50  0000 C CNN
-F 1 "74LS32" H 10150 4150 50  0000 C CNN
-F 2 "" H 10150 4200 50  0000 C CNN
-F 3 "" H 10150 4200 50  0000 C CNN
-	1    10150 4200
-	1    0    0    -1  
+L R R?
+U 1 1 56C0A3AC
+P 9100 5050
+F 0 "R?" V 9180 5050 50  0000 C CNN
+F 1 "1K" V 9100 5050 50  0000 C CNN
+F 2 "" V 9030 5050 50  0000 C CNN
+F 3 "" H 9100 5050 50  0000 C CNN
+	1    9100 5050
+	-1   0    0    1   
 $EndComp
+Wire Wire Line
+	9100 5300 9100 5200
+Connection ~ 9100 4750
+$Comp
+L JUMPER JP?
+U 1 1 56C0AE99
+P 9100 4150
+F 0 "JP?" H 9100 4300 50  0000 C CNN
+F 1 "JUMPER" H 9100 4070 50  0000 C CNN
+F 2 "" H 9100 4150 50  0000 C CNN
+F 3 "" H 9100 4150 50  0000 C CNN
+	1    9100 4150
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	9100 3250 9100 4050
+Wire Wire Line
+	9100 4050 9100 4050
+Wire Wire Line
+	9100 4750 9100 4450
+Wire Wire Line
+	9100 4050 9100 3850
 $EndSCHEMATC
