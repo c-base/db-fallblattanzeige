@@ -103,28 +103,6 @@ F 3 "" H 9900 3300 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L 74LS132 U?
-U 1 1 56A69D12
-P 7200 800
-F 0 "U?" H 7200 900 50  0000 C CNN
-F 1 "74LS132" H 7200 700 50  0000 C CNN
-F 2 "" H 7200 800 50  0000 C CNN
-F 3 "" H 7200 800 50  0000 C CNN
-	1    7200 800 
-	1    0    0    -1  
-$EndComp
-$Comp
-L 74LS132 U?
-U 2 1 56A69DD9
-P 7200 1300
-F 0 "U?" H 7200 1400 50  0000 C CNN
-F 1 "74LS132" H 7200 1200 50  0000 C CNN
-F 2 "" H 7200 1300 50  0000 C CNN
-F 3 "" H 7200 1300 50  0000 C CNN
-	2    7200 1300
-	-1   0    0    1   
-$EndComp
-$Comp
 L GND #PWR?
 U 1 1 56A6A12F
 P 1150 5100
@@ -340,7 +318,7 @@ Text Label 6100 4300 0    60   ~ 0
 PWR_IR1
 Text Label 6100 4200 0    60   ~ 0
 PWR_IR2
-Text Label 6350 1300 2    60   ~ 0
+Text Label 5200 1150 1    60   ~ 0
 IR_IN
 Text Label 6300 5250 0    60   ~ 0
 IR_IN
@@ -472,17 +450,6 @@ Wire Wire Line
 	5850 4200 6100 4200
 Wire Wire Line
 	5850 4300 6100 4300
-Wire Wire Line
-	5200 1350 5200 700 
-Wire Wire Line
-	5200 700  6600 700 
-Wire Wire Line
-	6600 700  6600 900 
-Wire Wire Line
-	7800 800  7800 1400
-Connection ~ 7800 1200
-Wire Wire Line
-	6350 1300 6600 1300
 Wire Wire Line
 	5850 5250 6300 5250
 Wire Wire Line
@@ -744,4 +711,6 @@ Wire Wire Line
 Wire Wire Line
 	9450 4200 9450 4750
 NoConn ~ 9200 4450
+Wire Wire Line
+	5200 1350 5200 1150
 $EndSCHEMATC
