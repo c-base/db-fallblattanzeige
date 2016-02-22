@@ -1,4 +1,4 @@
-update=Mon 22 Feb 2016 06:15:35 PM CET
+update=Mon 22 Feb 2016 10:06:23 PM CET
 version=1
 last_client=kicad
 [pcbnew]
@@ -23,8 +23,6 @@ ModuleOutlineThickness=0.150000000000
 [cvpcb]
 version=1
 NetIExt=net
-[general]
-version=1
 [eeschema]
 version=1
 LibDir=
@@ -63,3 +61,5 @@ LibName31=libs/power_sources
 LibName32=libs/additional-logic
 LibName33=libs/additional-opto
 LibName34=libs/additional_connectors
+[general]
+version=1
