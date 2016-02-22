@@ -1,4 +1,4 @@
-update=Fri 29 Jan 2016 11:40:41 PM CET
+update=Mon 22 Feb 2016 06:15:35 PM CET
 version=1
 last_client=kicad
 [pcbnew]
@@ -62,3 +62,4 @@ LibName30=libs/ok-ic-com
 LibName31=libs/power_sources
 LibName32=libs/additional-logic
 LibName33=libs/additional-opto
+LibName34=libs/additional_connectors
