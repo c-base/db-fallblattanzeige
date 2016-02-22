@@ -1,0 +1,11 @@
+EESchema-DOCLIB  Version 2.0
+#
+$CMP 2x9_pin_holes
+D Connector 02x09
+$ENDCMP
+#
+$CMP FTDI_header
+D Connector 01x06
+$ENDCMP
+#
+#End Doc Library
