@@ -1,5 +1,5 @@
 // DB-Fallblattanzeige 
-// 14.02.2016
+// 27.02.2016
 //
 // Authors: uk, coon
 
@@ -106,7 +106,7 @@ void setup() {
   digitalWrite(PIN_IR_ORIGIN, LOW);
   digitalWrite(PIN_IR_ROTARY, LOW);
   digitalWrite(PIN_RS485_nRE, LOW);
-  digitalWrite(PIN_RS485_DE, HIGH);
+  digitalWrite(PIN_RS485_DE, LOW);
   
   pinMode(PIN_SENSORS_IN, INPUT);
   pinMode(PIN_SR_LATCH,   OUTPUT);
@@ -129,7 +129,11 @@ void setup() {
 
 void loop() {
   if (Serial.available() > 0) {
-    int numCards = Serial.parseInt();
+    String numCardsStr = Serial.readStringUntil('\n');
+    Serial.print("Got string: ");
+    Serial.println(numCardsStr);
+    int numCards = numCardsStr.toInt();
+        
     if(numCards > 0)
       flipCards(numCards);
     else
