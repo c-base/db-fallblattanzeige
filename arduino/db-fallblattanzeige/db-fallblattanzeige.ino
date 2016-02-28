@@ -1,5 +1,5 @@
 // DB-Fallblattanzeige 
-// 18.02.2016
+// 27.02.2016
 //
 // Authors: uk, coon
 
@@ -134,7 +134,11 @@ void setup() {
 
 void loop() {
   if (Serial.available() > 0) {
-    int numCards = Serial.parseInt();
+    String numCardsStr = Serial.readStringUntil('\n');
+    Serial.print("Got string: ");
+    Serial.println(numCardsStr);
+    int numCards = numCardsStr.toInt();
+        
     if(numCards > 0)
       flipCards(numCards);
     else
