@@ -1,14 +1,14 @@
 // DB-Fallblattanzeige 
-// 14.02.2016
+// 18.02.2016
 //
 // Authors: uk, coon
 
 #include <Wire.h>
 
 // Pins
-const int PIN_RS485_nRE  = 2;  // PD2
-const int PIN_RS485_DE   = 3;  // PD3
-const int PIN_SENSORS_IN = 5;  // PD5
+const int PIN_RS485_nRE  = 2;  // PD2 (Receive Enable)
+const int PIN_RS485_DE   = 3;  // PD3 (Send Enable)
+const int PIN_SENSORS_IN = 5;  // PD5 
 const int PIN_SR_LATCH   = 6;  // PD6
 const int PIN_SR_CP      = 7;  // PD7
 const int PIN_SR_DATA    = 8;  // PB0
@@ -18,7 +18,7 @@ const int PIN_IR_ORIGIN  = A3; // PC3
 
 // constants
 const int I2C_EEPROM_ADDR = 0x50; // A0, A1, A2 are all on ground.
-const int ORIGIN_OFFSET = 5; // TODO: read from EEPROM later
+const int ORIGIN_OFFSET = 38; // TODO: read from EEPROM later
 
 void waitForRotaryQuarters(int quarters) {
   for(int i = 0; i < quarters; i++) {
@@ -101,12 +101,16 @@ void initI2cEeprom() {
   }
 }
 
+void busEnable(bool enable) {
+  digitalWrite(PIN_RS485_DE, enable ? HIGH : LOW);
+}
+
 void setup() {
   digitalWrite(PIN_MOTOR, HIGH);
   digitalWrite(PIN_IR_ORIGIN, LOW);
   digitalWrite(PIN_IR_ROTARY, LOW);
   digitalWrite(PIN_RS485_nRE, LOW);
-  digitalWrite(PIN_RS485_DE, HIGH);
+  digitalWrite(PIN_RS485_DE, LOW);
   
   pinMode(PIN_SENSORS_IN, INPUT);
   pinMode(PIN_SR_LATCH,   OUTPUT);
@@ -117,13 +121,14 @@ void setup() {
   pinMode(PIN_IR_ROTARY,  OUTPUT);
   pinMode(PIN_RS485_nRE,  OUTPUT);
   pinMode(PIN_RS485_DE,   OUTPUT);
-  
-  Serial.begin(9600);
 
+  busEnable(false);
+  
+  Serial.begin(9600); 
   Serial.print("Address: ");    
   Serial.println(String(getDeviceBusAddress(), DEC));
-
-  initI2cEeprom();
+  
+  // initI2cEeprom();
   spinToOrigin();
 }
 
