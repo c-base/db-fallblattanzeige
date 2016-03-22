@@ -1,10 +1,6 @@
-update=22/05/2015 07:44:53
+update=22/03/2016 21:34:58
 version=1
 last_client=kicad
-[general]
-version=1
-RootSch=
-BoardNm=
 [pcbnew]
 version=1
 LastNetListRead=
@@ -29,7 +25,7 @@ version=1
 NetIExt=net
 [eeschema]
 version=1
-LibDir=
+LibDir=libs
 [eeschema/libraries]
 LibName1=power
 LibName2=device
@@ -60,3 +56,6 @@ LibName26=opto
 LibName27=atmel
 LibName28=contrib
 LibName29=valves
+LibName30=libs/additional_connectors
+[general]
+version=1

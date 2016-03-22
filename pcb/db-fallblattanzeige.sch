@@ -1,4 +1,5 @@
 EESchema Schematic File Version 2
+LIBS:db-fallblattanzeige-rescue
 LIBS:power
 LIBS:device
 LIBS:transistors
@@ -41,7 +42,7 @@ encoding utf-8
 Sheet 1 1
 Title "Fallblatt-Fahrzielanzeige / Device Controller"
 Date "2016-01-25"
-Rev ""
+Rev "1"
 Comp "c-base e.V."
 Comment1 "coon"
 Comment2 ""
@@ -282,7 +283,7 @@ IR_IN
 Text Label 5350 3100 0    60   ~ 0
 SR_DATA
 Text Label 5250 5300 0    60   ~ 0
-/SR_LATCH
+~SR_LATCH
 Text Label 5250 5400 0    60   ~ 0
 SR_CP
 Wire Wire Line
@@ -390,7 +391,7 @@ Wire Wire Line
 Text Label 4850 1150 1    60   ~ 0
 SR_DATA
 Text Label 4850 1900 3    60   ~ 0
-/SR_LATCH
+~SR_LATCH
 Text Label 4750 1150 1    60   ~ 0
 SR_CP
 Wire Wire Line
@@ -554,10 +555,10 @@ Connection ~ 8150 4700
 Wire Wire Line
 	8150 3200 8150 3900
 $Comp
-L C 100nF1
+L C 100nF2
 U 1 1 56C0C772
 P 2650 4400
-F 0 "100nF1" H 2675 4500 50  0000 L CNN
+F 0 "100nF2" H 2675 4500 50  0000 L CNN
 F 1 "C" H 2675 4300 50  0000 L CNN
 F 2 "Capacitors_ThroughHole:C_Disc_D3_P2.5" H 2688 4250 50  0001 C CNN
 F 3 "" H 2650 4400 50  0000 C CNN
@@ -572,10 +573,10 @@ Wire Wire Line
 Wire Wire Line
 	9650 5000 9650 5300
 $Comp
-L C 100nF2
+L C 100nF3
 U 1 1 56C0D654
 P 9350 5450
-F 0 "100nF2" H 9375 5550 50  0000 L CNN
+F 0 "100nF3" H 9375 5550 50  0000 L CNN
 F 1 "C" H 9375 5350 50  0000 L CNN
 F 2 "Capacitors_ThroughHole:C_Disc_D3_P2.5" H 9388 5300 50  0001 C CNN
 F 3 "" H 9350 5450 50  0000 C CNN
@@ -598,24 +599,8 @@ Wire Wire Line
 Wire Wire Line
 	9200 5150 9650 5150
 Connection ~ 9650 5150
-NoConn ~ 4050 1800
-NoConn ~ 4250 1300
-NoConn ~ 4350 1300
-NoConn ~ 4550 1300
-NoConn ~ 4650 1300
 Wire Wire Line
 	1150 5000 1150 5350
-$Comp
-L 2x9_pin_holes P1
-U 1 1 56CB4B14
-P 4450 1550
-F 0 "P1" H 4450 2050 50  0000 C CNN
-F 1 "2x9_pin_holes" V 4450 1550 50  0000 C CNN
-F 2 "Socket_Strips:Socket_Strip_Straight_2x09" H 4450 350 50  0001 C CNN
-F 3 "" H 4450 350 50  0000 C CNN
-	1    4450 1550
-	0    1    1    0   
-$EndComp
 Connection ~ 2650 3400
 $Comp
 L FTDI_header P2
@@ -672,10 +657,10 @@ $EndComp
 Wire Wire Line
 	4450 950  4450 1300
 $Comp
-L C 100nF3
+L C 100nF1
 U 1 1 56CBB6B6
 P 2200 4400
-F 0 "100nF3" H 2225 4500 50  0000 L CNN
+F 0 "100nF1" H 2225 4500 50  0000 L CNN
 F 1 "C" H 2225 4300 50  0000 L CNN
 F 2 "Capacitors_ThroughHole:C_Disc_D3_P2.5" H 2238 4250 50  0001 C CNN
 F 3 "" H 2200 4400 50  0000 C CNN
@@ -732,4 +717,15 @@ Connection ~ 5600 4000
 Wire Wire Line
 	6550 3500 6250 3500
 Connection ~ 5600 3500
+$Comp
+L ZiLOG_3562_FBM_V2.02 P1
+U 1 1 56F1A4E4
+P 4450 1550
+F 0 "P1" H 4450 2050 50  0000 C CNN
+F 1 "ZiLOG_3562_FBM_V2.02" V 4450 1550 50  0000 C CNN
+F 2 "" H 4450 350 50  0000 C CNN
+F 3 "" H 4450 350 50  0000 C CNN
+	1    4450 1550
+	0    1    1    0   
+$EndComp
 $EndSCHEMATC
