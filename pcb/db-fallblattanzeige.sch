@@ -1,5 +1,4 @@
 EESchema Schematic File Version 2
-LIBS:db-fallblattanzeige-rescue
 LIBS:power
 LIBS:device
 LIBS:transistors
@@ -723,7 +722,7 @@ U 1 1 56F1A4E4
 P 4450 1550
 F 0 "P1" H 4450 2050 50  0000 C CNN
 F 1 "ZiLOG_3562_FBM_V2.02" V 4450 1550 50  0000 C CNN
-F 2 "" H 4450 350 50  0000 C CNN
+F 2 "c-base-db:ZiLOG_3562_FBM_V2.02" H 4450 350 50  0001 C CNN
 F 3 "" H 4450 350 50  0000 C CNN
 	1    4450 1550
 	0    1    1    0   

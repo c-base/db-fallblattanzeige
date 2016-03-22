@@ -1,8 +1,8 @@
 (export (version D)
   (design
-    (source C:/Users/Stephan/Desktop/db-fallblattanzeige/pcb/db-fallblattanzeige.sch)
-    (date "22/03/2016 21:33:30")
-    (tool "Eeschema 4.0.1-stable")
+    (source /home/coon/db-fallblattanzeige/pcb/db-fallblattanzeige.sch)
+    (date "Tue 22 Mar 2016 11:00:33 PM CET")
+    (tool "Eeschema 4.0.2-stable")
     (sheet (number 1) (name /) (tstamps /)
       (title_block
         (title "Fallblatt-Fahrzielanzeige / Device Controller")
@@ -132,6 +132,7 @@
       (tstamp 56CBDDE0))
     (comp (ref P1)
       (value ZiLOG_3562_FBM_V2.02)
+      (footprint c-base-db:ZiLOG_3562_FBM_V2.02)
       (libsource (lib additional_connectors) (part ZiLOG_3562_FBM_V2.02))
       (sheetpath (names /) (tstamps /))
       (tstamp 56F1A4E4)))
@@ -314,13 +315,13 @@
         (pin (num 18) (name ~SR_LATCH) (type passive)))))
   (libraries
     (library (logical device)
-      (uri "C:\\Program Files\\KiCad\\share\\kicad\\library\\device.lib"))
-    (library (logical atmel)
-      (uri "C:\\Program Files\\KiCad\\share\\kicad\\library\\atmel.lib"))
+      (uri /usr/share/kicad/library/device.lib))
     (library (logical ok-ic-com)
-      (uri libs\ok-ic-com.lib))
+      (uri /home/coon/db-fallblattanzeige/pcb/libs/ok-ic-com.lib))
+    (library (logical atmel)
+      (uri /usr/share/kicad/library/atmel.lib))
     (library (logical additional_connectors)
-      (uri libs\additional_connectors.lib)))
+      (uri /home/coon/db-fallblattanzeige/pcb/libs/additional_connectors.lib)))
   (nets
     (net (code 1) (name "Net-(IC1-Pad23)")
       (node (ref IC1) (pin 23)))
