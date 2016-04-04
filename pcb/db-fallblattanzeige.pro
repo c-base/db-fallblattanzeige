@@ -1,6 +1,6 @@
-update=22/03/2016 20:52:23
+update=Mon 04 Apr 2016 11:02:54 PM CEST
 version=1
-last_client=eeschema
+last_client=kicad
 [pcbnew]
 version=1
 LastNetListRead=
@@ -23,8 +23,6 @@ ModuleOutlineThickness=0.150000000000
 [cvpcb]
 version=1
 NetIExt=net
-[general]
-version=1
 [eeschema]
 version=1
 LibDir=
@@ -64,3 +62,5 @@ LibName32=libs/power_sources
 LibName33=libs/additional-logic
 LibName34=libs/additional-opto
 LibName35=libs/additional_connectors
+[general]
+version=1
