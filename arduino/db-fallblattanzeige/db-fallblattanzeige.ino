@@ -1,9 +1,7 @@
 // DB-Fallblattanzeige 
-// 27.02.2016
+// 18.06.2016
 //
 // Authors: uk, coon
-
-#include <Wire.h>
 
 // Pins
 const int PIN_RS485_nRE  = 2;  // PD2 (Receive Enable)
@@ -18,28 +16,42 @@ const int PIN_IR_ORIGIN  = A3; // PC3
 
 // constants
 const int I2C_EEPROM_ADDR = 0x50; // A0, A1, A2 are all on ground.
-const int ORIGIN_OFFSET = 38; // TODO: read from EEPROM later
+const int ORIGIN_OFFSET = 0; // TODO: read from EEPROM later!
 
-void waitForRotaryQuarters(int quarters) {
+enum SensorPhase {
+  ODD,
+  EVEN
+};
+
+int _myId = 0;
+
+void waitForRotaryQuarters(SensorPhase phase, int quarters) {
   for(int i = 0; i < quarters; i++) {
-    while(!digitalRead(PIN_SENSORS_IN)); // wait for first high
-    while(digitalRead(PIN_SENSORS_IN));  // wait for low
-    while(!digitalRead(PIN_SENSORS_IN)); // wait for second high
+    if(phase == EVEN) {    
+      while(!digitalRead(PIN_SENSORS_IN)); // wait for first high
+      while(digitalRead(PIN_SENSORS_IN));  // wait for low
+      while(!digitalRead(PIN_SENSORS_IN)); // wait for second high 
+    }
+    else {
+      while(digitalRead(PIN_SENSORS_IN));  // wait for first low
+      while(!digitalRead(PIN_SENSORS_IN)); // wait for high
+      while(digitalRead(PIN_SENSORS_IN));  // wait for second low
+    }
   }
 }
 
-void flipCards(int numCards) {
+void flipCards(SensorPhase phase, int numCards) {
   digitalWrite(PIN_IR_ROTARY, HIGH);
   digitalWrite(PIN_MOTOR, LOW);
   
   for(int i = 0; i < numCards; i++)
-    waitForRotaryQuarters(1);
+    waitForRotaryQuarters(phase, 1);
     
   digitalWrite(PIN_MOTOR, HIGH);
   digitalWrite(PIN_IR_ROTARY, LOW);
 }
 
-void spinToOrigin() {
+void spinToOrigin(SensorPhase phase) {
   digitalWrite(PIN_IR_ORIGIN, HIGH);
   digitalWrite(PIN_MOTOR, LOW);
 
@@ -49,7 +61,7 @@ void spinToOrigin() {
   
   digitalWrite(PIN_IR_ORIGIN, LOW);
   
-  flipCards(ORIGIN_OFFSET); // flip some additional cards, if needed
+  flipCards(phase, ORIGIN_OFFSET); // flip some additional cards, if needed
   
   digitalWrite(PIN_MOTOR, HIGH);
 }
@@ -71,41 +83,11 @@ byte getDeviceBusAddress() {
   return address;
 }
 
-void initI2cEeprom() {
-  Wire.setClock(0); // set to lowest possible speed
-
-  Wire.beginTransmission(I2C_EEPROM_ADDR); // Chosen base address
-  Wire.write(0); // send MSB of the address
-  Wire.write(0); // send LSB of the address
-  
-  if(byte error = Wire.endTransmission())
-    Serial.println("I2C-EEPROM did not respond!");
-  else {
-    delay(100);
-    Wire.requestFrom(I2C_EEPROM_ADDR, 20);
-
-    Serial.println("Waiting for data from EEPROM...");
-    while(!Wire.available());
-
-    Serial.print("Data: ");
-
-    for(int i = 0; i < 20; i++) {
-      if(i % 15 == 0)
-        Serial.println("");
-    
-      byte b = Wire.read();
-      Serial.print("0x");
-      Serial.print(String(b, HEX));
-      Serial.print(" ");
-    }
-  }
-}
-
 void busEnable(bool enable) {
   digitalWrite(PIN_RS485_DE, enable ? HIGH : LOW);
 }
 
-void setup() {
+void setup() {  
   digitalWrite(PIN_MOTOR, HIGH);
   digitalWrite(PIN_IR_ORIGIN, LOW);
   digitalWrite(PIN_IR_ROTARY, LOW);
@@ -123,26 +105,34 @@ void setup() {
   pinMode(PIN_RS485_DE,   OUTPUT);
 
   busEnable(false);
+
+  Serial.begin(9600);
+
+  _myId = getDeviceBusAddress();
+  Serial.print("Address: ");
+  Serial.println(String(_myId, DEC));
   
-  Serial.begin(9600); 
-  Serial.print("Address: ");    
-  Serial.println(String(getDeviceBusAddress(), DEC));
-  
-  // initI2cEeprom();
-  spinToOrigin();
+  spinToOrigin(EVEN); // assume initial even
 }
 
 void loop() {
   if (Serial.available() > 0) {
-    String numCardsStr = Serial.readStringUntil('\n');
-    Serial.print("Got string: ");
-    Serial.println(numCardsStr);
-    int numCards = numCardsStr.toInt();
-        
-    if(numCards > 0)
-      flipCards(numCards);
+    int id = Serial.readStringUntil('/').toInt();
+    int numCards = Serial.readStringUntil('/').toInt();
+    String strPhase = Serial.readStringUntil('\n');
+
+    SensorPhase phase;
+    if(strPhase.equals("EVEN"))
+      phase = EVEN;
     else
-      spinToOrigin();
+      phase = ODD;
+
+    if(id == _myId) {
+      if(numCards > 0)
+        flipCards(phase, numCards);
+      else
+        spinToOrigin(phase);
+    }  
   }
 }
 
